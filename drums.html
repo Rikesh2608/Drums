@@ -18,7 +18,7 @@
                 text-shadow: 5px 5px 10px rgba(0,0,0,0.5);
                 font-size: 1.2em;
             }
-            .btn.sounds{
+            .btn.sounds,.btn:hover{
                 transform: scale(1.1);
                 font-size: 1.8em;
                 color: #f5abc5;
@@ -69,60 +69,61 @@
            <h1> Drum Kits <i class="fa-solid fa-drum"></i></h1>
         </div>
         <div class="sounds">
-            <button class="btn snare">Snare</button>
-            <button class="btn kick">Kick</button>
-            <button class="btn crash">Crash</button>
-            <button class="btn tom">Tom</button>
+            <button class="btn snare" onclick="snare()">Snare</button>
+            <button class="btn kick" onclick="kick()">Kick</button>
+            <button class="btn crash" onclick="crash()">Crash</button>
+            <button class="btn tom" onclick="tom()">Tom</button>
         </div>
 
         <script>
             window.addEventListener('keydown',(event)=>{
                 if(event.key=="s"){
-                    let s=document.querySelector('.snare');
-                    s.innerHTML=`Snare<audio src="projects_drum-kits_sounds_snare.mp3" autoplay></audio>`;
-                    s.classList.add('sounds');
-                    setTimeout(()=>{
-                        s.classList.remove('sounds');
-                    },300);
+                    snare();
                 }
                 if(event.key=="k"){
-                    let k=document.querySelector('.kick');
+                    kick();
+                }
+                if(event.key=="c"){
+                    crash();
+                }
+                if(event.key=="t"){
+                    tom();
+                }
+            });
+
+            function kick(){
+                let k=document.querySelector('.kick');
                     k.innerHTML=`Kick<audio src="projects_drum-kits_sounds_kick.mp3" autoplay></audio>`;
                     k.classList.add('sounds');
                     setTimeout(()=>{
                         k.classList.remove('sounds');
                     },300);
-                }
-                if(event.key=="c"){
-                    let c=document.querySelector('.crash');
+            }
+
+            function snare(){
+                let s=document.querySelector('.snare');
+                    s.innerHTML=`Snare<audio src="projects_drum-kits_sounds_snare.mp3" autoplay></audio>`;
+                    s.classList.add('sounds');
+                    setTimeout(()=>{
+                        s.classList.remove('sounds');
+                    },300);
+            }
+            function crash(){
+                let c=document.querySelector('.crash');
                     c.innerHTML=`Crash<audio src="projects_drum-kits_sounds_crash.mp3" autoplay></audio>`;
                     c.classList.add('sounds');
                     setTimeout(()=>{
                         c.classList.remove('sounds');
                     },300);
-                }
-                if(event.key=="t"){
-                    let t=document.querySelector('.tom');
+            }
+            function tom(){
+                let t=document.querySelector('.tom');
                     t.innerHTML=`Tom<audio src="projects_drum-kits_sounds_tom.mp3" autoplay></audio>`;
                     t.classList.add('sounds');
                     setTimeout(()=>{
                         t.classList.remove('sounds');
                     },300);
-                }
-            });
-
-            document.querySelector('.snare').addEventListener('click',()=>{
-               document.querySelector('.snare').innerHTML=`Snare<audio src="projects_drum-kits_sounds_snare.mp3" autoplay></audio>`; 
-            });
-            document.querySelector('.kick').addEventListener('click',()=>{
-                document.querySelector('.kick').innerHTML=`Kick<audio src="projects_drum-kits_sounds_kick.mp3" autoplay></audio>`;
-            });
-            document.querySelector('.crash').addEventListener('click',()=>{
-                document.querySelector('.crash').innerHTML=`Crash<audio src="projects_drum-kits_sounds_crash.mp3" autoplay></audio>`;
-            });
-            document.querySelector('.tom').addEventListener('click',()=>{
-                document.querySelector('.tom').innerHTML=`Tom<audio src="projects_drum-kits_sounds_tom.mp3" autoplay></audio>`;
-            });
+            }
         </script>
     </body>
 </html>
